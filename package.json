@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Echo-Nashville/Echo-Nashville-Lambda/issues"
   },
-  "homepage": "https://github.com/Echo-Nashville/Echo-Nashville-Lambda#readme"
+  "homepage": "https://github.com/Echo-Nashville/Echo-Nashville-Lambda#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.15"
+  }
 }

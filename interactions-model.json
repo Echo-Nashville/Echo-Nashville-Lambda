@@ -1,0 +1,12 @@
+{
+    "intents": [
+        {
+            "name": "HelloWorldIntent",
+            "samples": [
+                "hello",
+                "say hello",
+                "hello world"
+            ]
+        }
+    ]
+}
