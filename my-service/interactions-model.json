@@ -1,7 +1,7 @@
 {
     "intents": [
         {
-            "name": "HelloWorldIntent",
+            "name": "TestIntent",
             "samples": [
                 "hello",
                 "say hello",

@@ -20,7 +20,7 @@ const handlers = {
         getPicnic('http://google.com', function (text) {
             self.response.speak(text);
             self.emit(':responseReady');
-        })
+        });
     },
     'AMAZON.CancelIntent': function () {
         this.response.speak('Goodbye!');
