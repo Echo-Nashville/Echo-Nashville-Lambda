@@ -1,9 +1,6 @@
 {
   "intents": [
     {
-      "intent": "NewSession"
-    },
-    {
       "intent": "AMAZON.CancelIntent"
     },
     {
@@ -20,6 +17,12 @@
     },
     {
       "intent": "ClosetParkIntent"
+    },
+    {
+      "intent": "MenuIntent"
+    },
+    {
+      "intent": "SelectPark"
     },
     {
       "intent": "PicnicIntent"

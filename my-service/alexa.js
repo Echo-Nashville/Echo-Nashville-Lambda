@@ -16,22 +16,55 @@ const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context, callback);
     alexa.APP_ID = config.appId;
-    alexa.registerHandlers(newSessionHandlers, menuStateHandlers);
+    alexa.registerHandlers(newSessionHandlers, menuStateHandlers, parkStateHandlers, asyncHandlers);
     alexa.execute();
 };
 
 const newSessionHandlers = {
     'NewSession': function() {
-        this.handler.state = states.MENU_STATE;
         this.emit(':ask', welcomeMessage);
+    },
+    'AMAZON.YesIntent': function() {
+        this.handler.state = states.MENU_STATE
+        this.emitWithState('NewSession');
+    },
+    'AMAZON.NoIntent': function() {
+        this.emit(':tell', 'Goodbye!');
+    },
+    'Unhandled': function() {
+        this.emit(':tell', 'What was that?');
     }
 };
 
 const menuStateHandlers = Alexa.CreateStateHandler(states.MENU_STATE, {
     'NewSession': function() {
-        this.emit(':tell', 'Please select from the menu.');
+        this.emit(':ask', 'Please select from the menu.');
+    },
+    'SelectPark': function() {
+        this.handler.state = states.PARK_STATE
+        this.emitWithState('NewSession');
     }
 });
+
+const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
+    'NewSession': function() {
+        this.emit(':ask', 'Now in the park state.  Make selection.');
+    },
+    'MenuIntent': function() {
+        this.handler.state = states.MENU_STATE;
+        this.emitWithState('NewSession');
+    },
+    'Unhandled': function() {
+        this.emit(':tell', 'What was that?');
+    }
+});
+
+const asyncHandlers = {
+    'MenuIntent': function() {
+        this.handler.state = states.MENU_STATE;
+        this.emitWithState('NewSession');
+    }
+}
 
 const handlers = {
     'LaunchRequest': function () {

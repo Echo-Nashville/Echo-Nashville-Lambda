@@ -1,11 +1,15 @@
 {
     "intents": [
         {
-            "name": "TestIntent",
+            "name": "SelectPark",
             "samples": [
-                "hello",
-                "say hello",
-                "hello world"
+                "park"
+            ]
+        },
+        {
+            "name": "MenuIntent",
+            "sampes": [
+                "menu"
             ]
         }
     ]
