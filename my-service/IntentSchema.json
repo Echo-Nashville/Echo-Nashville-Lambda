@@ -10,10 +10,35 @@
       "intent": "AMAZON.StopIntent"
     },
     {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
       "intent": "ClosestParkAddressIntent"
     },
     {
       "intent": "ClosetParkIntent"
+    },
+    {
+      "intent": "MenuIntent"
+    },
+    {
+      "intent": "SelectPark"
+    },
+    {
+      "intent": "CheckParkIntent",
+      "slots": [
+        {
+          "name": "park_name",
+          "type": "nashville_park"
+        },
+        {
+          "name": "park_feature",
+          "type": "feature"
+        }
+      ] 
+    },
+    {
+      "intent": "SelectArt"
     },
     {
       "intent": "PicnicIntent"
@@ -38,6 +63,9 @@
     },
     {
       "intent": "NewestParkIntent"
+    },
+    {
+      "intent": "BiggestParkIntent"
     },
     {
       "intent": "BasketballIntent"
@@ -119,9 +147,6 @@
     },
     {
       "intent": "HistoricLocationIntent"
-    },
-    {
-      "intent": "TestIntent"
     }
   ]
 }

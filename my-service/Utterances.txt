@@ -1,1 +1,11 @@
+SelectPark park
+
 PicnicIntent picnic
+OldestParkIntent oldest
+BiggestParkIntent biggest
+CheckParkIntent does {park_name} have a {park_feature}
+CheckParkIntent does {park_name} have {park_feature}
+
+SelectArt art
+
+MenuIntent menu

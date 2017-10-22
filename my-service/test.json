@@ -5,7 +5,9 @@
       "application": {
         "applicationId": "amzn1.ask.skill.4f6f3fdb-4015-4c67-b22b-171396feedc5"
       },
-      "attributes": {},
+      "attributes": {
+        "STATE": "_PARK_STATE"
+      },
       "user": {
         "userId": "amzn1.ask.account.AFJZRBXVESBVWX5M6JMI3PYWP6VZQOICGCOYC6H2EIFJZUVP6CGELHISAKDOB6KXTQVU45RTFYYMHVX6MQNGAFZRX2RJOGDJYPUOWDUJLHBX5DXDT3KWGWCCFF73XZZ3FPVUZFNSXDO3ZJ6ARBOM6NROGUWPPNFTUR4C652H54G3BV6M3O5PCP3XTNVUHERSZUX4IDWGAJPAYCY"
       }
@@ -14,8 +16,11 @@
       "type": "IntentRequest",
       "requestId": "EdwRequestId.3842512f-391a-42e0-9251-70a4bb9710b5",
       "intent": {
-        "name": "PicnicIntent",
-        "slots": {}
+        "name": "NotValid",
+        "slots": {
+          "park_name": "Centennial Park",
+          "park_feature": "tennis_courts"
+        }
       },
       "locale": "en-US",
       "timestamp": "2017-10-21T21:10:33Z"

@@ -1,11 +1,39 @@
 {
     "intents": [
         {
-            "name": "TestIntent",
+            "name": "SelectPark",
             "samples": [
-                "hello",
-                "say hello",
-                "hello world"
+                "park"
+            ]
+        },
+        {
+            "name": "PicnicIntent",
+            "samples": [
+                "picnic"
+            ]
+        },
+        {
+            "name": "OldestParkIntent",
+            "samples": [
+                "oldest"
+            ]
+        },
+        {
+            "names": "BiggestParkIntent",
+            "samples": [
+                "biggest"
+            ]
+        },
+        {
+            "name": "SelectArt",
+            "samples": [
+                "art"
+            ]
+        },
+        {
+            "name": "MenuIntent",
+            "sampes": [
+                "menu"
             ]
         }
     ]
