@@ -14,6 +14,7 @@ const states = {
 const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin?';
 const couldNotFind = 'I could not find a park matching your search.';
 const errorSpeechlet = 'An error has occured while trying to retrieve the data.';
+const repeatMessage = 'I did not understand you.  Please repeat.';
 
 function getRequestOpt(url) {
     return {
@@ -52,7 +53,7 @@ const newSessionHandlers = {
         this.emit(':tell', 'Goodbye!');
     },
     'Unhandled': function() {
-        this.emit(':tell', 'What was that?');
+        this.emit(':ask', repeatMessage);
     }
 };
 
@@ -67,6 +68,9 @@ const menuStateHandlers = Alexa.CreateStateHandler(states.MENU_STATE, {
     'SelectArt': function() {
         this.handler.state = states.ART_STATE;
         this.emitWithState('NewSession');
+    },
+    'Unhandled': function() {
+        this.emit(':ask', repeatMessage);
     }
 });
 
@@ -118,7 +122,7 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
         });
     },
     'Unhandled': function() {
-        this.emit(':tell', 'What was that?');
+        this.emit(':ask', repeatMessage);
     }
 });
 
@@ -131,7 +135,7 @@ const artStatehandlers = Alexa.CreateStateHandler(states.ART_STATE, {
         this.emitWithState('NewSession');
     },
     'Unhandled': function() {
-        this.emit(':tell', 'What was that?');
+        this.emit(':ask', repeatMessage);
     }
 })
 
