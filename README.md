@@ -20,9 +20,9 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 
 
-Install the Alexa sdk and request http module in the working directory.
+Install the Alexa sdk in the working directory.
 ```
-npm install
+npm install --save alexa-sdk
 ```
 Install Serverless to improve the workflow
 
