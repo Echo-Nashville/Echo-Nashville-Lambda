@@ -119,6 +119,9 @@
       "intent": "StreetArtCountIntent"
     },
     {
+      "intent": "SculptureArtCountIntent"
+    },
+    {
       "intent": "FindSculpturesIntent"
     },
     {

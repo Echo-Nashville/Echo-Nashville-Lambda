@@ -136,6 +136,15 @@ const artStatehandlers = Alexa.CreateStateHandler(states.ART_STATE, {
         this.handler.state = states.MENU_STATE;
         this.emitWithState('NewSession');
     },
+    'SculptureArtCountIntent': function() {
+        var self = this;
+
+        var opt = getRequestOpt(getSculptureCountUrl());
+
+        getSculptureCount(opt, function(text) {
+            self.emit(':ask', text);
+        });
+    },
     'Unhandled': function() {
         this.emit(':ask', repeatMessage);
     }
@@ -208,6 +217,21 @@ function getCheckPark(opt, featureName, parkName, callback) {
     });
 };
 
+function getSculptureCount(opt, callback) {
+
+    request(opt, function(err, resp, body) {
+        var speechlet = null;
+
+        if (err) {
+            speechlet = errorSpeechlet;
+        } else {
+            speechlet = makeSculptureCountSpeechlet(JSON.parse(body));
+        }
+
+        return callback(speechlet);
+    });
+};
+
 function getParksWithPicnicsUrl() {
     return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,%20picnic_shelters_quantity%20WHERE%20picnic_shelters=%22Yes%22';
 };
@@ -222,6 +246,10 @@ function getBiggestParkUrl() {
 
 function getCheckParkUrl(parkName, parkFeature) {
     return `https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20${parkFeature}%20WHERE%20park_name=%22${parkName}%22`;
+};
+
+function getSculptureCountUrl() {
+    return 'https://data.nashville.gov/resource/bta3-7qkc.json?$query=SELECT%20title%20WHERE%20type%20=%20%22Sculpture%22';
 };
 
 function makeParksWithPicnicsSpeechlet(parks) {
@@ -272,6 +300,19 @@ function makeCheckParkSpeechlet(featureObj, featureName, parkName) {
         }
 
         var res = `${parkName} ${test} have ${featureName}.`;
+        return res;
+    } else {
+        return couldNotFind;
+    }
+};
+
+function makeSculptureCountSpeechlet(sculptures) {
+    var count = sculptures.length;
+    var rand =  Math.floor(Math.random() * (count-1) );
+    var randSculp = sculptures[rand].title;
+
+    if (randSculp != undefined) {
+        var res = `There are ${count} sculptures in Nashville.  Check out ${randSculp}!`;
         return res;
     } else {
         return couldNotFind;
