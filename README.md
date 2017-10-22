@@ -55,5 +55,5 @@ We faced multiple challenges during VandyHacks IV:
 * We would like to add more natural and parametrized utterances.
 * We want to see this implemented across other cities! The SODA API has data for other cities.
 * We want to be able to query the closest park. We have the proper Google Maps API, but did not have time to implement it.
-* Lastly, we would like to implement 2 slots per query.
 * We would like to add Alexa to wearables so you can ask about Nashville on the fly.
+* Lastly, we would like to implement 2 slots per query.
