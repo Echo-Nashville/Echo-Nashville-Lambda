@@ -7,6 +7,12 @@
             ]
         },
         {
+            "name": "PicnicIntent",
+            "samples": [
+                "picnic"
+            ]
+        },
+        {
             "name": "SelectArt",
             "samples": [
                 "art"

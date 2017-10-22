@@ -62,6 +62,21 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
         this.handler.state = states.MENU_STATE;
         this.emitWithState('NewSession');
     },
+    'PicnicIntent': function () {
+        var self = this;
+
+        var opt = {
+            url: getParksWithPicnicsUrl(),
+            method: 'GET',
+            headers: {
+                'X-App-Token': config.appToken
+            }
+        };
+
+        getParksWithPicnics(opt, function(text) {
+            self.emit(':ask', text);
+        })
+    },
     'Unhandled': function() {
         this.emit(':tell', 'What was that?');
     }
