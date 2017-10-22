@@ -49,4 +49,6 @@ SelectArt I want to learn about art
 SelectArt I have questions about art
 SelectArt I wish to inquire about your public art collection
 
+SculptureArtCountIntent sculpture
+
 MenuIntent menu
