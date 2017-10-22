@@ -1,5 +1,6 @@
 'use strict';
 const Alexa = require('alexa-sdk');
+const request = require('request');
 
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context);
@@ -12,9 +13,24 @@ const handlers = {
         this.emit('TestIntent');
     },
     'TestIntent': function () {
-        this.emit(':tell', 'Hello My Man Hannah');
+        var self = this;
+
+        getParksWithPicnics('http://google.com', function(text) {
+            self.emit(':tell', text);
+        })
     },
     'Unhandled': function () {
         this.emit(':tell', 'Sorry, I did not get that.');
     }
+};
+
+function getParksWithPicnics(url, callback) {
+    request
+        .get(url)
+        .on('response', function (response) {
+            return callback('Getting parks with picnics.');
+        })
+        .on('error', function(err) {
+            console.log(err);
+        });
 };
