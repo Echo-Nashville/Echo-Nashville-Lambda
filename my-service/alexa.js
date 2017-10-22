@@ -11,7 +11,7 @@ const states = {
     ART_STATE: '_ART_STATE'
 };
 
-const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin?';
+const welcomeMessage = 'Welcome to the Nashville Open Data Explorer.  Begin?';
 const couldNotFind = 'I could not find a park matching your search.';
 const errorSpeechlet = 'An error has occured while trying to retrieve the data.';
 const repeatMessage = 'I did not understand you.  Please repeat.';
