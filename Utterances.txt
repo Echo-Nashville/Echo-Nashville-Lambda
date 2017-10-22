@@ -1,3 +1,184 @@
-HelloWorldIntent hello
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
+ClosestParkAddressIntent Where is the closest park
+ClosestParkAddressIntent Where is the nearest park
+ClosestParkAddressIntent What is the address of the closest park
+ClosestParkAddressIntent what is the address of the nearest park
+ClosestParkAddressIntent nearest park address
+ClosestParkAddressIntent closest park address
+
+ClosetParkIntent What is the Closest Park
+ClosetParkIntent Closest Park
+ClosetParkIntent Nearest Park
+ClosetParkIntent What is the nearest Park
+ClosetParkIntent Which park is closest
+ClosetParkIntent Which park is nearest
+
+ClosetParkIntent What is the Closest Park
+ClosetParkIntent Closest Park
+ClosetParkIntent Nearest Park
+ClosetParkIntent What is the nearest Park
+ClosetParkIntent Which park is closest
+ClosetParkIntent Which park is nearest
+
+PicnicIntent Which parks have picnic spots
+PicnicIntent Which parks have picnic areas
+PicnicIntent Which parks have picnic tables
+PicnicIntent Where can I have a picnic
+PicnicIntent Picnic
+
+LakeIntent Which parks have lake access
+LakeIntent Which parks have a lake
+LakeIntent Lake
+
+SkateParkIntent Which parks have a skate park
+SkateParkIntent Which parks have skate parks
+SkateParkIntent Where can I skate
+SkateParkIntent Where can I pop an ollie
+SkateParkIntent Skate Park
+
+
+CampIntent Where can I camp
+CampIntent Which parks have camp grounds
+CampIntent Camping
+CampIntent Camp grounds
+
+HikingIntent Which parks have hiking trails
+HikingIntent Where can I hike around here
+HikingIntent What parks have hiking trails
+HikingIntent Hiking trails
+HikingIntent I want to go for a hike
+
+HistoricIntent Which parks have historic areas
+HistoricIntent Which parks have historic features
+HistoricIntent Historic features
+HistoricIntent Where can I see nature and history
+
+OldestParkIntent Which park is the oldest
+OldestParkIntent What park is the oldest
+OldestParkIntent What is the oldest park called
+OldestParkIntent Which one is the oldest park
+OldestParkIntent Oldest park
+
+NewestParkIntent Which park is the newest
+NewestParkIntent What park is the newest
+NewestParkIntent What is the newest park called
+NewestParkIntent Which one is the newest park
+NewestParkIntent Newest park
+
+BasketballIntent Which parks have basketball courts
+BasketballIntent Where can I play basketball
+BasketballIntent Where can I find a basketball court
+BasketballIntent Where can I shoot hoops
+BasketballIntent Basketball courts
+
+TennisIntent Which parks have tennis courts
+TennisIntent Where can I play tennis
+TennisIntent Where can I find a tennis court
+TennisIntent Tennis courts
+
+SoccerIntent Where can I play soccer
+SoccerIntent What parks have soccer
+SoccerIntent What parks in Nashville have soccer
+SoccerIntent Where can I play soccer
+SoccerIntent Where can I play soccer in Nashville
+SoccerIntent Where are there soccer fields in Nashville
+SoccerIntent Soccer fields
+SoccerIntent I want to play soccer
+SoccerIntent Where are there soccer fields
+SoccerIntent Where are the soccer fields
+
+PoolIntent Where are there swimming pools
+PoolIntent What parks have swimming pools
+PoolIntent Where can I swim in Nashville
+PoolIntent Where can I swim around here
+PoolIntent Where can I swim in a pool
+PoolIntent Swimming pool
+
+RestroomsIntent What parks have bathrooms
+RestroomsIntent What parks have restrooms
+RestroomsIntent What are parks with public restrooms
+RestroomsIntent What are parks with public bathrooms
+RestroomsIntent Parks with public restrooms
+
+FrolfIntent Where can I play disc golf
+FrolfIntent I want to play disc golf
+FrolfIntent Where can I play frisbee golf
+FrolfIntent What parks have frisbee golf
+FrolfIntent What parks have disc golf
+FrolfIntent Disc golf
+
+DogParkIntent What parks have a dog park
+DogParkIntent Where can I find a dog park
+DogParkIntent Where are there dog parks
+DogParkIntent Dog parks in Nashville
+DogParkIntent Where are dog parks
+DogParkIntent I want to go to a dog park
+DogParkIntent Dog park
+
+GardensIntent What parks have gardens
+GardensIntent What parks have community gardens
+GardensIntent Where are there community gardens
+GardensIntent Where are community gardens
+
+DescribeArtIntent Where can I find street art
+DescribeArtIntent What is the public art like here
+DescribeArtIntent What kinds of art can I find around here
+
+SculptureCountIntent How many sculptures can be found around town
+SculptureCountIntent How many sculptures are in the public art collection
+
+MuralCountIntent How many murals can be found around town
+MuralCountIntent How many murals are in the public art collection
+
+BronzeCountIntent How many bronze works can be found around town
+BronzeCountIntent How many bronzes are in the public art collection
+
+FountainCountIntent How many fountains can be found around town
+FountainCountIntent How many fountains are in the public art collection
+
+MosaicCountIntent How many mosaics can be found around town
+MosaicCountIntent How many mosaics are in the public art collection
+
+TopiaryCountIntent How many topiaries can be found around town
+TopiaryCountIntent How many topiaries are in the public art collection
+
+StainedGlassCountIntent How many stained glass works can be found around town
+StainedGlassCountIntent How many stained glass works are in the public art collection
+
+StreetArtCountIntent How many works of street art can be found around town
+StreetArtCountIntent How many works of street art are in the public art collection
+
+FindSculpturesIntent Where can I find sculptures
+FindSculpturesIntent Where are the sculptures around here
+
+FindMuralsIntent Where can I find murals
+FindMuralsIntent Where are the murals around here
+
+FindBronzeIntent Where can I find bronze art
+FindBronzeIntent Where is the bronze art around here
+
+FindFountainIntent Where can I find fountains
+FindFountainIntent Where are the fountains around here
+
+FindMosaicIntent Where can I find mosaics
+FindMosaicIntent Where are the mosaics around here
+
+FindTopiaryIntent Where can I find topiaries
+FindTopiaryIntent Where are the topiaries around here
+
+FindStainedGlassIntent Where can I find stained glass
+FindStainedGlassIntent Where is the stained glass around here
+
+FindStreetArtIntent Where can I find street art
+FindStreetArtIntent Where is the street art around here
+
+CivilWarIntent What are civil war sites in Nashville
+CivilWarIntent What are civil war sites
+CivilWarIntent Where are civil war sites
+CivilWarIntent Where are civil war sites in Nashville
+CivilWarIntent Where can I learn about the civil war
+CivilWarIntent Civil War Nashville
+CivilWarIntent Civil War in Nashville
+CivilWarIntent Civil War
+
+HistoricLocationIntent Where can I find historic sites in Nashville
+HistoricLocationIntent Historic sites in Nashville
