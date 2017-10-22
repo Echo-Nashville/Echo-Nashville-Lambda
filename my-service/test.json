@@ -14,7 +14,7 @@
       "type": "IntentRequest",
       "requestId": "EdwRequestId.3842512f-391a-42e0-9251-70a4bb9710b5",
       "intent": {
-        "name": "PicnicIntent",
+        "name": "NewSession",
         "slots": {}
       },
       "locale": "en-US",

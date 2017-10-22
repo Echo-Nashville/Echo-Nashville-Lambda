@@ -5,11 +5,33 @@ const config = require('./config');
 
 const listLimit = 5;
 
+const states = {
+    MENU_STATE: '_MENU_STATE',
+    PARK_STATE: '_PARK_STATE',
+    ART_STATE: '_ART_STATE'
+};
+
+const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin?';
+
 module.exports.alexa = function(event, context, callback) {
-    const alexa = Alexa.handler(event, context);
-    alexa.registerHandlers(handlers);
+    const alexa = Alexa.handler(event, context, callback);
+    alexa.APP_ID = config.appId;
+    alexa.registerHandlers(newSessionHandlers, menuStateHandlers);
     alexa.execute();
 };
+
+const newSessionHandlers = {
+    'NewSession': function() {
+        this.handler.state = states.MENU_STATE;
+        this.emit(':ask', welcomeMessage);
+    }
+};
+
+const menuStateHandlers = Alexa.CreateStateHandler(states.MENU_STATE, {
+    'NewSession': function() {
+        this.emit(':tell', 'Please select from the menu.');
+    }
+});
 
 const handlers = {
     'LaunchRequest': function () {

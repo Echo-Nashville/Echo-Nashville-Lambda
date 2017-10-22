@@ -1,6 +1,9 @@
 {
   "intents": [
     {
+      "intent": "NewSession"
+    },
+    {
       "intent": "AMAZON.CancelIntent"
     },
     {
@@ -8,6 +11,9 @@
     },
     {
       "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
     },
     {
       "intent": "ClosestParkAddressIntent"
@@ -119,9 +125,6 @@
     },
     {
       "intent": "HistoricLocationIntent"
-    },
-    {
-      "intent": "TestIntent"
     }
   ]
 }
