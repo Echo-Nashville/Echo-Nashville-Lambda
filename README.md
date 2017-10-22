@@ -57,4 +57,3 @@ We faced multiple challenges during VandyHacks IV:
 * We want to be able to query the closest park. We have the proper Google Maps API, but did not have time to implement it.
 * We would like to add Alexa to wearables so you can ask about Nashville on the fly.
 * Lastly, we would like to implement 2 slots per query.
-* We would like to add Alexa to wearables so you can ask about Nashville on the fly.
