@@ -1,7 +1,125 @@
 {
-    "intents": [
-        {
-            "intent": "TestIntent"
-        }
-    ]
+  "intents": [
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "ClosestParkAddressIntent"
+    },
+    {
+      "intent": "ClosetParkIntent"
+    },
+    {
+      "intent": "PicnicIntent"
+    },
+    {
+      "intent": "LakeIntent"
+    },
+    {
+      "intent": "SkateParkIntent"
+    },
+    {
+      "intent": "CampIntent"
+    },
+    {
+      "intent": "HikingIntent"
+    },
+    {
+      "intent": "HistoricIntent"
+    },
+    {
+      "intent": "OldestParkIntent"
+    },
+    {
+      "intent": "NewestParkIntent"
+    },
+    {
+      "intent": "BasketballIntent"
+    },
+    {
+      "intent": "TennisIntent"
+    },
+    {
+      "intent": "SoccerIntent"
+    },
+    {
+      "intent": "PoolIntent"
+    },
+    {
+      "intent": "RestroomsIntent"
+    },
+    {
+      "intent": "FrolfIntent"
+    },
+    {
+      "intent": "DogParkIntent"
+    },
+    {
+      "intent": "GardensIntent"
+    },
+    {
+      "intent": "DescribeArtIntent"
+    },
+    {
+      "intent": "SculptureCountIntent"
+    },
+    {
+      "intent": "MuralCountIntent"
+    },
+    {
+      "intent": "BronzeCountIntent"
+    },
+    {
+      "intent": "FountainCountIntent"
+    },
+    {
+      "intent": "MosaicCountIntent"
+    },
+    {
+      "intent": "TopiaryCountIntent"
+    },
+    {
+      "intent": "StainedGlassCountIntent"
+    },
+    {
+      "intent": "StreetArtCountIntent"
+    },
+    {
+      "intent": "FindSculpturesIntent"
+    },
+    {
+      "intent": "FindMuralsIntent"
+    },
+    {
+      "intent": "FindBronzeIntent"
+    },
+    {
+      "intent": "FindFountainIntent"
+    },
+    {
+      "intent": "FindMosaicIntent"
+    },
+    {
+      "intent": "FindTopiaryIntent"
+    },
+    {
+      "intent": "FindStainedGlassIntent"
+    },
+    {
+      "intent": "FindStreetArtIntent"
+    },
+    {
+      "intent": "CivilWarIntent"
+    },
+    {
+      "intent": "HistoricLocationIntent"
+    },
+
+  ]
 }
