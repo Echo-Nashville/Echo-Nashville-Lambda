@@ -1,11 +1,52 @@
 SelectPark park
+SelectPark take me to the park menu
+SelectPark tell me about parks
+SelectPark I want to learn about parks
+SelectPark I have questions about parks
+SelectPark I wish to inquire about your recreational areas
 
 PicnicIntent picnic
+PicnicIntent tell me where I can picnic
+PicnicIntent tell me some spots with picnic spots
+PicnicIntent which parks have picnic spots
+PicnicIntent which parks have picnic areas
+PicnicIntent which parks have picnic tables
+PicnicIntent where can I have a picnic
+PicnicIntent picnic tables
+PicnicIntent picnic areas
+PicnicIntent picnic spots
+PicnicIntent where can I eat a steak
+PicnicIntent help me pick a picnic spot
+
 OldestParkIntent oldest
+OldestParkIntent which park is the oldest
+OldestParkIntent what park is the oldest
+OldestParkIntent what is the oldest park called
+OldestParkIntent which one is the oldest park
+OldestParkIntent oldest park
+OldestParkIntent which park is older than your mom
+OldestParkIntent which park has been around the longest
+OldestParkIntent which park is most ancient
+OldestParkIntent like a fine wine which park gets better with age
+
 BiggestParkIntent biggest
+BiggestParkIntent which park is the biggest
+BiggestParkIntent what is the biggest park
+BiggestParkIntent where can I roam most freely
+BiggestParkIntent which is the biggest park
+BiggestParkIntent biggest park
+BiggestParkIntent which park is the largest
+BiggestParkIntent what is the biggest park
+BiggestParkIntent which is the largest park
+
 CheckParkIntent does {park_name} have a {park_feature}
 CheckParkIntent does {park_name} have {park_feature}
 
 SelectArt art
+SelectArt take me to the art menu
+SelectArt tell me about art
+SelectArt I want to learn about art
+SelectArt I have questions about art
+SelectArt I wish to inquire about your public art collection
 
 MenuIntent menu

@@ -15,6 +15,8 @@ const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin
 const couldNotFind = 'I could not find a park matching your search.';
 const errorSpeechlet = 'An error has occured while trying to retrieve the data.';
 const repeatMessage = 'I did not understand you.  Please repeat.';
+const parksMenuMessage = 'Welcome to the parks menu. What would you like to know?'
+const artMenuMessage = 'Welcome to the public art menu. What would you like to know?'
 
 function getRequestOpt(url) {
     return {
@@ -33,10 +35,10 @@ function makeFeatureParam(feature) {
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context, callback);
     alexa.APP_ID = config.appId;
-    alexa.registerHandlers(newSessionHandlers, 
-                           menuStateHandlers, 
+    alexa.registerHandlers(newSessionHandlers,
+                           menuStateHandlers,
                            parkStateHandlers,
-                           artStatehandlers, 
+                           artStatehandlers,
                            asyncHandlers);
     alexa.execute();
 };
@@ -76,7 +78,7 @@ const menuStateHandlers = Alexa.CreateStateHandler(states.MENU_STATE, {
 
 const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
     'NewSession': function() {
-        this.emit(':ask', 'Now in the park state.  Make selection.');
+        this.emit(':ask', parksMenuMessage);
     },
     'MenuIntent': function() {
         this.handler.state = states.MENU_STATE;
@@ -128,7 +130,7 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
 
 const artStatehandlers = Alexa.CreateStateHandler(states.ART_STATE, {
     'NewSession': function() {
-        this.emit(':ask', 'Now in the art state.  Make selection.');
+        this.emit(':ask', artMenuMessage);
     },
     'MenuIntent': function() {
         this.handler.state = states.MENU_STATE;
@@ -192,7 +194,7 @@ function getBiggestPark(opt, callback) {
 };
 
 function getCheckPark(opt, featureName, parkName, callback) {
-    
+
     request(opt, function(err, resp, body) {
         var speechlet = null;
 
@@ -249,7 +251,7 @@ function makeOldestParkSpeechlet(park) {
     } else {
         return couldNotFind;
     }
-    
+
 };
 
 function makeBiggestParkSpeechlet(park) {
