@@ -25,6 +25,10 @@ function getRequestOpt(url) {
     };
 };
 
+function makeFeatureParam(feature) {
+    return feature.trim().toLocaleLowerCase().replace(' ', '_');
+};
+
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context, callback);
     alexa.APP_ID = config.appId;
@@ -74,16 +78,22 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
         this.handler.state = states.MENU_STATE;
         this.emitWithState('NewSession');
     },
+    'CheckParkIntent': function() {
+        var self = this;
+
+        var name = this.event.request.intent.slots.park_name;
+        var feature = this.event.request.intent.slots.park_feature;
+
+        var opt = getRequestOpt(getCheckParkUrl(name, feature));
+
+        getCheckPark(opt, feature, name, function(text) {
+            self.emit(':ask', text);
+        });
+    },
     'PicnicIntent': function () {
         var self = this;
 
-        var opt = {
-            url: getParksWithPicnicsUrl(),
-            method: 'GET',
-            headers: {
-                'X-App-Token': config.appToken
-            }
-        };
+        var opt = getRequestOpt(getParksWithPicnicsUrl());
 
         getParksWithPicnics(opt, function(text) {
             self.emit(':ask', text);
@@ -175,7 +185,22 @@ function getBiggestPark(opt, callback) {
 
         return callback(speechlet);
     })
-}
+};
+
+function getCheckPark(opt, featureName, parkName, callback) {
+    
+    request(opt, function(err, resp, body) {
+        var speechlet = null;
+
+        if (err) {
+            speechlet = errorSpeechlet;
+        } else {
+            speechlet = makeCheckParkSpeechlet(JSON.parse(body)[0], featureName, parkName);
+        }
+
+        return callback(speechlet);
+    });
+};
 
 function getParksWithPicnicsUrl() {
     return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,%20picnic_shelters_quantity%20WHERE%20picnic_shelters=%22Yes%22';
@@ -187,7 +212,11 @@ function getOldestParkUrl() {
 
 function getBiggestParkUrl() {
     return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,acres%20ORDER%20BY%20acres%20DESC%20LIMIT%201';
-}
+};
+
+function getCheckParkUrl(parkName, parkFeature) {
+    return `https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20${parkFeature}%20WHERE%20park_name=%22${parkName}%22`;
+};
 
 function makeParksWithPicnicsSpeechlet(parks) {
     var parksList = "";
@@ -222,6 +251,21 @@ function makeOldestParkSpeechlet(park) {
 function makeBiggestParkSpeechlet(park) {
     if (park != undefined) {
         var res = `The biggest park in Nashville is ${park.park_name}, at ${park.acres} acres.`;
+        return res;
+    } else {
+        return couldNotFind;
+    }
+};
+
+function makeCheckParkSpeechlet(featureObj, featureName, parkName) {
+    if (featureObj != undefined) {
+        var test = 'does';
+
+        if (featureObj.featureName === 'No') {
+            test = 'does not';
+        }
+
+        var res = `${parkName} ${test} have ${featureName}.`;
         return res;
     } else {
         return couldNotFind;

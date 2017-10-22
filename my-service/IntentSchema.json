@@ -25,6 +25,19 @@
       "intent": "SelectPark"
     },
     {
+      "intent": "CheckParkIntent",
+      "slots": [
+        {
+          "name": "park_name",
+          "type": "nashville_park"
+        },
+        {
+          "name": "park_feature",
+          "type": "feature"
+        }
+      ] 
+    },
+    {
       "intent": "SelectArt"
     },
     {

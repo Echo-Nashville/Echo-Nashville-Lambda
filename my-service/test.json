@@ -16,8 +16,11 @@
       "type": "IntentRequest",
       "requestId": "EdwRequestId.3842512f-391a-42e0-9251-70a4bb9710b5",
       "intent": {
-        "name": "BiggestParkIntent",
-        "slots": {}
+        "name": "CheckParkIntent",
+        "slots": {
+          "park_name": "Centennial Park",
+          "park_feature": "tennis_courts"
+        }
       },
       "locale": "en-US",
       "timestamp": "2017-10-21T21:10:33Z"
