@@ -3,6 +3,8 @@ const Alexa = require('alexa-sdk');
 const request = require('request');
 const config = require('./config');
 
+const listLimit = 5;
+
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context);
     alexa.registerHandlers(handlers);
@@ -11,9 +13,9 @@ module.exports.alexa = function(event, context, callback) {
 
 const handlers = {
     'LaunchRequest': function () {
-        this.emit('TestIntent');
+        this.emit('PicnicIntent');
     },
-    'TestIntent': function () {
+    'PicnicIntent': function () {
         var self = this;
 
         var opt = {
@@ -56,12 +58,13 @@ function makeParksWithPicnicsSpeechlet(parks) {
     var parksList = "";
 
     if (parks.length > 0) {
-        // parks.forEach(function(park) {
-        //     parksList += park.park_name + ' ';
-        // });
 
-        for (var i = 0; i < parks.length; i++) {
-            parksList += parks[i].park_name;
+        for (var i = 0; i < listLimit; i++) {
+            if (i === listLimit - 1) {
+                parksList += ' and ';
+            }
+
+            parksList += parks[i].park_name + ',';
         }
 
         var res = `The parks with picnic areas are ${parksList}.`;
