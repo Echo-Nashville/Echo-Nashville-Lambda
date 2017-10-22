@@ -40,7 +40,7 @@ Once, the environment is set up, and amazon developer and AWS are set up, server
 * [AWS Lambda Functions](https://aws.amazon.com/lambda/) - Code upload tool that integrates with Alexa
 * [Amazon Developer](https://developer.amazon.com/) - Alexa skill creator
 
-##Challenges
+## Challenges
 We faced multiple challenges during VandyHacks IV:
 * This was our first hackathon ever!
 * It was our first time developing with an Echo, AWS, Lambda, Open Data API, and the Alexa-SDK
@@ -50,9 +50,10 @@ We faced multiple challenges during VandyHacks IV:
 * It was our first time using the Open Data API.
 
 
-##Future Goals
+## Future Goals
 * We would like to implement cards, so that when you ask about a park, a card pushes a picture and an address to your phone
 * We would like to add more natural and parametrized utterances.
 * We want to see this implemented across other cities! The SODA API has data for other cities.
 * We want to be able to query the closest park. We have the proper Google Maps API, but did not have time to implement it.
 * Lastly, we would like to implement 2 slots per query.
+* We would like to add Alexa to wearables so you can ask about Nashville on the fly.
