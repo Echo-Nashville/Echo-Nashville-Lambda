@@ -12,6 +12,17 @@ const states = {
 };
 
 const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin?';
+const couldNotFind = 'I could not find a park matching your search.';
+
+function getRequestOpt(url) {
+    return {
+        url: url,
+        method: 'GET',
+        headers: {
+            'X-App-Token': config.appToken
+        }
+    };
+};
 
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context, callback);
@@ -77,6 +88,15 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
             self.emit(':ask', text);
         })
     },
+    'OldestParkIntent': function() {
+        var self = this;
+
+        var opt = getRequestOpt(getOldestParkUrl());
+
+        getOldestPark(opt, function(text) {
+            self.emit(':ask', text);
+        })
+    },
     'Unhandled': function() {
         this.emit(':tell', 'What was that?');
     }
@@ -102,30 +122,6 @@ const asyncHandlers = {
     }
 }
 
-const handlers = {
-    'LaunchRequest': function () {
-        this.emit('PicnicIntent');
-    },
-    'PicnicIntent': function () {
-        var self = this;
-
-        var opt = {
-            url: getParksWithPicnicsUrl(),
-            method: 'GET',
-            headers: {
-                'X-App-Token': config.appToken
-            }
-        };
-
-        getParksWithPicnics(opt, function(text) {
-            self.emit(':tell', text);
-        })
-    },
-    'Unhandled': function () {
-        this.emit(':tell', 'Sorry, I did not get that.');
-    }
-};
-
 function getParksWithPicnics(opt, callback) {
 
     request(opt, function(err, resp, body) {
@@ -141,8 +137,27 @@ function getParksWithPicnics(opt, callback) {
     });
 };
 
+function getOldestPark(opt, callback) {
+
+    request(opt, function(err, resp, body) {
+        var speechlet = null;
+
+        if (err) {
+            speechlet = makeOldestParkSpeechlet(false);
+        } else {
+            speechlet = makeOldestParkSpeechlet(JSON.parse(body)[1]);  //Account for invalid data in dataset
+        }
+
+        return callback(speechlet);
+    })
+}
+
 function getParksWithPicnicsUrl() {
     return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,%20picnic_shelters_quantity%20WHERE%20picnic_shelters=%22Yes%22';
+};
+
+function getOldestParkUrl() {
+    return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,year_established%20ORDER%20BY%20year_established%20LIMIT%202';
 };
 
 function makeParksWithPicnicsSpeechlet(parks) {
@@ -161,6 +176,16 @@ function makeParksWithPicnicsSpeechlet(parks) {
         var res = `The parks with picnic areas are ${parksList}.`;
         return res;
     } else {
-        return 'I could not find any parks with picnic areas.';
+        return couldNotFind;
     }
+}
+
+function makeOldestParkSpeechlet(park) {
+    if (park.park_name) {
+        var res = `The oldest park in Nashville is ${park.park_name}.  It was established in ${park.year_established}`;
+        return res;
+    } else {
+        return couldNotFind;
+    }
+    
 }
