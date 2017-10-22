@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Echo-Nashville/Echo-Nashville-Lambda#readme",
   "dependencies": {
     "alexa-sdk": "^1.0.15",
+    "node-socrata": "0.0.50",
     "request": "^2.83.0"
   }
 }
