@@ -1,5 +1,8 @@
 'use strict';
 const Alexa = require("alexa-sdk");
+const request = require('request');
+
+// const picnicHandlers = require('./picnicHandlers');
 
 exports.handler = function(event, context, callback) {
     const alexa = Alexa.handler(event, context);
@@ -7,23 +10,17 @@ exports.handler = function(event, context, callback) {
     alexa.execute();
 };
 
-const handlers = {
-    'LaunchRequest': function () {
-        this.emit('SayHello');
+const handlers = {    
+    'LaunchRequest': () => {
+        this.emit('PicnicIntent');
     },
-    'HelloWorldIntent': function () {
-        this.emit('SayHello')
-    },
-    'SayHello': function () {
-        this.response.speak('Hello World!');
-        this.emit(':responseReady');
-    },
-    'AMAZON.HelpIntent': function () {
-        const speechOutput = 'This is the Hello World Sample Skill. ';
-        const reprompt = 'Say hello, to hear me speak.';
+    'PicnicIntent': () => {
+        var self = this;
 
-        this.response.speak(speechOutput).listen(reprompt);
-        this.emit(':responseReady');
+        getPicnic('http://google.com', function (text) {
+            self.response.speak(text);
+            self.emit(':responseReady');
+        })
     },
     'AMAZON.CancelIntent': function () {
         this.response.speak('Goodbye!');
@@ -37,3 +34,14 @@ const handlers = {
         this.emit(':ask', 'Sorry, I didn\'t get that.');
     }
 };
+
+function getPicnic(url, callback) {
+    request
+        .get(url)
+        .on('response', (response) => {
+            return callback('getting parks with picnics');
+        })
+        .on('error', (err) => {
+            console.log(err);
+        });
+}
