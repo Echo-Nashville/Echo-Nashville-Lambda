@@ -13,6 +13,7 @@ const states = {
 
 const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin?';
 const couldNotFind = 'I could not find a park matching your search.';
+const errorSpeechlet = 'An error has occured while trying to retrieve the data.';
 
 function getRequestOpt(url) {
     return {
@@ -95,7 +96,16 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
 
         getOldestPark(opt, function(text) {
             self.emit(':ask', text);
-        })
+        });
+    },
+    'BiggestParkIntent': function() {
+        var self = this;
+
+        var opt = getRequestOpt(getBiggestParkUrl());
+
+        getBiggestPark(opt, function(text) {
+            self.emit(':ask', text);
+        });
     },
     'Unhandled': function() {
         this.emit(':tell', 'What was that?');
@@ -143,9 +153,24 @@ function getOldestPark(opt, callback) {
         var speechlet = null;
 
         if (err) {
-            speechlet = makeOldestParkSpeechlet(false);
+            speechlet = errorSpeechlet;
         } else {
             speechlet = makeOldestParkSpeechlet(JSON.parse(body)[1]);  //Account for invalid data in dataset
+        }
+
+        return callback(speechlet);
+    })
+};
+
+function getBiggestPark(opt, callback) {
+
+    request(opt, function(err, resp, body) {
+        var speechlet = null;
+
+        if (err) {
+            speechlet = errorSpeechlet;
+        } else {
+            speechlet = makeBiggestParkSpeechlet(JSON.parse(body)[0]);
         }
 
         return callback(speechlet);
@@ -159,6 +184,10 @@ function getParksWithPicnicsUrl() {
 function getOldestParkUrl() {
     return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,year_established%20ORDER%20BY%20year_established%20LIMIT%202';
 };
+
+function getBiggestParkUrl() {
+    return 'https://data.nashville.gov/resource/xbru-cfzi.json?$query=SELECT%20park_name,acres%20ORDER%20BY%20acres%20DESC%20LIMIT%201';
+}
 
 function makeParksWithPicnicsSpeechlet(parks) {
     var parksList = "";
@@ -188,4 +217,13 @@ function makeOldestParkSpeechlet(park) {
         return couldNotFind;
     }
     
-}
+};
+
+function makeBiggestParkSpeechlet(park) {
+    if (park != undefined) {
+        var res = `The biggest park in Nashville is ${park.park_name}, at ${park.acres} acres.`;
+        return res;
+    } else {
+        return couldNotFind;
+    }
+};

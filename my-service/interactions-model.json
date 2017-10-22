@@ -19,6 +19,12 @@
             ]
         },
         {
+            "names": "BiggestParkIntent",
+            "samples": [
+                "biggest"
+            ]
+        },
+        {
             "name": "SelectArt",
             "samples": [
                 "art"

@@ -52,6 +52,9 @@
       "intent": "NewestParkIntent"
     },
     {
+      "intent": "BiggestParkIntent"
+    },
+    {
       "intent": "BasketballIntent"
     },
     {
