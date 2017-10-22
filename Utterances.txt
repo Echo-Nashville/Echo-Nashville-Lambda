@@ -182,3 +182,82 @@ CivilWarIntent Civil War
 
 HistoricLocationIntent Where can I find historic sites in Nashville
 HistoricLocationIntent Historic sites in Nashville
+
+ParkGardenIntent Does {park_name} have a community garden
+ParkGardenIntent Is there a community garden at {park_name}
+ParkFrolfIntent Does {park_name} have disc golf
+ParkFrolfIntent Is there disc golf at {park_name}
+ParkFrolfIntent Can I play disc golf at {park_name}
+ParkDogIntent Is there a dog park at {park_name}
+ParkDogIntent Does {park_name} have a dog park
+ParkDogIntent Are dogs allowed at {park_name}
+ParkDogIntent Can I bring my dog to {park_name}
+ParkHistoryIntent Does {park_name} have historic features
+ParkHistoryIntent Are there historic features at {park_name}
+ParkHikeIntent Does {park_name} have hiking trails
+ParkHikeIntent Are there hiking trails at {park_name}
+ParkHikeIntent Can I hike at {park_name}
+ParkBikeIntent Does {park_name} have mountain bike trails
+ParkBikeIntent Does {park_name} have mountain biking trails
+ParkBikeIntent Does {park_name} have trails for mountain bikes
+ParkBikeIntent Does {park_name} have trails for mountain biking
+ParkBikeIntent Are there mountain bike trails at {park_name}
+ParkBikeIntent Are there trails for mountain bikes at {park_name}
+ParkBikeIntent Can I mountain bike at {park_name}
+ParkHorseIntent Does {park_name} have horse trails
+ParkHorseIntent Does {park_name} have trails for horses
+ParkHorseIntent Can I ride my horse at {park_name}
+ParkHorseIntent Are there horse trails at {park_name}
+ParkHorseIntent Are there trails for horses at {park_name}
+ParkPoolIntent Does {park_name} have a pool
+ParkPoolIntent Is there a pool at {park_name}
+ParkPoolIntent Can I swim at {park_name}
+ParkPoolIntent Is there swimming at {park_name}
+ParkNatureIntent Does {park_name} have a nature center
+ParkNatureIntent Does {park_name} have an education center
+ParkNatureIntent Does {park_name} have a natural center
+ParkNatureIntent Is there a nature center at {park_name}
+ParkNatureIntent Is there an education center at {park_center}
+ParkNatureIntent Is there a nature education center at {park_center}
+
+ParkPlaygroundIntent Does {park_name} have a playground
+ParkPlaygroundIntent Is there a playground at {park_name}
+
+ParkRestroomIntent Does {park_name} have public restrooms
+ParkRestroomIntent Does {park_name} have public bathrooms
+ParkRestroomIntent Does {park_name} have restrooms
+ParkRestroomIntent Does {park_name} have restrooms
+ParkRestroomIntent Are there bathrooms at {park_name}
+ParkRestroomIntent Are there restrooms at {park_name}
+ParkRestroomIntent Are there public bathrooms at {park_name}
+ParkRestroomIntent Are there public restrooms at {park_name}
+
+ParkADAIntent Is {park_name} ADA accessible
+ParkADAIntent Is {park_name} handicap accessible
+
+ParkLakeIntent Does {park_name} have lake access
+ParkLakeIntent Is there lake access at {park_name}
+
+ParkPicnicIntent Does {park_name} have picnic tables
+ParkPicnicIntent Does {park_name} have picnic shelters
+ParkPicnicIntent Does {park_name} have a picnic area
+ParkPicnicIntent Are there picnic tables at {park_name}
+ParkPicnicIntent Are there picnic shelters at {park_name}
+ParkPicnicIntent Is there a picnic area at {park_name}
+
+ParkSkateIntent Does {park_name} have a skate park
+ParkSkateIntent Is there a skate park at {park_name}
+
+ParkBasketballIntent Does {park_name} have basketball courts
+ParkBasketballIntent Is there a basketball court at {park_name}
+ParkBasketballIntent Can I play basketball at {park_name}
+
+ParkSoccerIntent Does {park_name} have soccer fields
+ParkSoccerIntent Is there a soccer field at {park_name}
+ParkSoccerIntent Can I play soccer at {park_name}
+
+ParkCampIntent Does {park_name} have campsites
+ParkCampIntent Does {park_name} have a campground
+ParkCampIntent Is there a campground at {park_name}
+ParkCampIntent Are there campsites at {park_name}
+ParkCampIntent Can I camp at {park_name}
