@@ -16,7 +16,11 @@ const welcomeMessage = 'Welcome to the Nashville Open Data Query Service.  Begin
 module.exports.alexa = function(event, context, callback) {
     const alexa = Alexa.handler(event, context, callback);
     alexa.APP_ID = config.appId;
-    alexa.registerHandlers(newSessionHandlers, menuStateHandlers, parkStateHandlers, asyncHandlers);
+    alexa.registerHandlers(newSessionHandlers, 
+                           menuStateHandlers, 
+                           parkStateHandlers,
+                           artStatehandlers, 
+                           asyncHandlers);
     alexa.execute();
 };
 
@@ -43,6 +47,10 @@ const menuStateHandlers = Alexa.CreateStateHandler(states.MENU_STATE, {
     'SelectPark': function() {
         this.handler.state = states.PARK_STATE
         this.emitWithState('NewSession');
+    },
+    'SelectArt': function() {
+        this.handler.state = states.ART_STATE;
+        this.emitWithState('NewSession');
     }
 });
 
@@ -58,6 +66,19 @@ const parkStateHandlers = Alexa.CreateStateHandler(states.PARK_STATE, {
         this.emit(':tell', 'What was that?');
     }
 });
+
+const artStatehandlers = Alexa.CreateStateHandler(states.ART_STATE, {
+    'NewSession': function() {
+        this.emit(':ask', 'Now in the art state.  Make selection.');
+    },
+    'MenuIntent': function() {
+        this.handler.state = states.MENU_STATE;
+        this.emitWithState('NewSession');
+    },
+    'Unhandled': function() {
+        this.emit(':tell', 'What was that?');
+    }
+})
 
 const asyncHandlers = {
     'MenuIntent': function() {

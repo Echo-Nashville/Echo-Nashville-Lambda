@@ -7,6 +7,12 @@
             ]
         },
         {
+            "name": "SelectArt",
+            "samples": [
+                "art"
+            ]
+        },
+        {
             "name": "MenuIntent",
             "sampes": [
                 "menu"

@@ -25,6 +25,9 @@
       "intent": "SelectPark"
     },
     {
+      "intent": "SelectArt"
+    },
+    {
       "intent": "PicnicIntent"
     },
     {
