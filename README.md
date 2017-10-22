@@ -30,6 +30,17 @@ Install Serverless to improve the workflow
 npm install -g serverless
 ```
 
+<<<<<<< f50e0634882b88aa2fe00e253fe8dfc808137097
+=======
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+>>>>>>> New ReadMe file
 ## Deployment
 
 Once, the environment is set up, and amazon developer and AWS are set up, serverless can be used to push deployements to Alexa without the need for uploading code through the AWS site.
